@@ -22,6 +22,18 @@ module.exports = [
     chunks: ['home'],
     template: "./src/views/home.html"
   }),
+  new htmlWebpackPlugin({
+    filename: "saveScene.html",
+    title: "saveScene",
+    chunks: ['saveScene'],
+    template: "./src/views/saveScene.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "airTrail.html",
+    title: "airTrail",
+    chunks: ['airTrail'],
+    template: "./src/views/airTrail.html"
+  }),
   new webpack.ProvidePlugin({
     $: "jquery",
     jQuery: "jquery",
