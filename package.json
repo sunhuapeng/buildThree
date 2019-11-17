@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config webpack.config.js",
     "build": "webpack",
-    "dev": "npx webpack-dev-server --mode development --content-base ./map"
+    "dev": "npx webpack-dev-server --mode development --content-base ./three"
   },
   "author": "",
   "license": "ISC",

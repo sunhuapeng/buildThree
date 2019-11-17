@@ -23,16 +23,22 @@ module.exports = [
     template: "./src/views/home.html"
   }),
   new htmlWebpackPlugin({
-    filename: "saveScene.html",
+    filename: "保存场景或模型.html",
     title: "saveScene",
     chunks: ['saveScene'],
     template: "./src/views/saveScene.html"
   }),
   new htmlWebpackPlugin({
-    filename: "airTrail.html",
+    filename: "按照轨迹飞行.html",
     title: "airTrail",
     chunks: ['airTrail'],
     template: "./src/views/airTrail.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "全景图.html",
+    title: "Panorama",
+    chunks: ['Panorama'],
+    template: "./src/views/Panorama.html"
   }),
   new webpack.ProvidePlugin({
     $: "jquery",

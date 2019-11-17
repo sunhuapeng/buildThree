@@ -5,6 +5,7 @@ module.exports = {
     home: './src/scene/home.js',
     saveScene: './src/scene/saveScene.js',
     airTrail: './src/scene/airTrail.js',
+    Panorama: './src/scene/Panorama.js',
   },
   mode: "development",
   plugins: pluginsConfig,
@@ -30,7 +31,7 @@ module.exports = {
     ]
   },
   devServer: {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: '8031',
     disableHostCheck: true, // 取消host检查
   },
@@ -39,6 +40,6 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'map')
+    path: path.resolve(__dirname, 'three')
   }
 };
