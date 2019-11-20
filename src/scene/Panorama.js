@@ -35,9 +35,9 @@ export default class World {
     static HD
     changeTexture() {
         if (world.HD) {
-            this.sphereMesh.material.map = texture2
+            this.sphereMesh.material.map = this.texture2
         } else {
-            this.sphereMesh.material.map = texture
+            this.sphereMesh.material.map = this.texture
         }
     }
     init() {
@@ -76,7 +76,7 @@ export default class World {
 
 
         var material = new THREE.MeshBasicMaterial({
-            map: texture
+            map: this.texture
         });
         this.sphereMesh = new THREE.Mesh(geometry, material);
         this.sphereMesh.name = 'sphere'
@@ -117,11 +117,9 @@ export default class World {
         this.isUserInteracting = false;
     }
     onWindowResize() {
-        this.width = window.innerWidth
-        this.height = window.innerHeight
-        this.camera.aspect = this.width / this.height
+        this.camera.aspect = window.innerWidth / window.innerHeight
         this.camera.updateProjectionMatrix()
-        this.renderer.setSize(this.width, this.height)
+        this.renderer.setSize(window.innerWidth, window.innerHeight)
     }
     // 初始化场景
     initScene() {
