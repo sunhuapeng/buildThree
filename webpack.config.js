@@ -2,10 +2,11 @@ const path = require('path');
 const pluginsConfig = require("./webpack.plugins.js");
 module.exports = {
   entry: {
-    home: './src/scene/home.js',
-    saveScene: './src/scene/saveScene.js',
-    airTrail: './src/scene/airTrail.js',
+    // home: './src/scene/home.js',
+    // saveScene: './src/scene/saveScene.js',
+    // airTrail: './src/scene/airTrail.js',
     Panorama: './src/scene/Panorama.js',
+    MicroScene: './src/scene/MicroScene1.js',
   },
   mode: "development",
   plugins: pluginsConfig,
@@ -32,7 +33,7 @@ module.exports = {
   },
   devServer: {
     host: 'localhost',
-    port: '8031',
+    port: '8032',
     disableHostCheck: true, // 取消host检查
   },
   resolve: {
