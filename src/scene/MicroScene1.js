@@ -4,7 +4,9 @@
 const THREE = require("three");
 const TWEEN = require("@tweenjs/tween.js");
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {
+  OrbitControls
+} from "three/examples/jsm/controls/OrbitControls";
 
 export default class World {
   scene;
@@ -16,6 +18,9 @@ export default class World {
   gridHelper;
   axisHelper;
   AmbientLight;
+  spotLight;
+  plane; //平面
+  textureLoader = new THREE.TextureLoader()
   constructor() {}
   init() {
     // 创建容器
@@ -27,6 +32,7 @@ export default class World {
     this.initHelper();
     this.initControls();
     this.initCylinder();
+    this.initSpotLight()
     window.addEventListener(
       "resize",
       () => {
@@ -34,13 +40,34 @@ export default class World {
       },
       true
     );
+    this.textureLoader.load('./static/images/桌面贴图.jpg', texture => {
+      this.initPlane(texture)
+    })
   }
-
+  initPlane(texture) {
+    var geometry = new THREE.PlaneGeometry(300, 800, 32);
+    var material = new THREE.MeshBasicMaterial({
+      // color: 0x3d3c3c,
+      map: texture,
+      side: THREE.DoubleSide,
+    });
+    this.plane = new THREE.Mesh(geometry, material);
+    this.plane.rotation.x = Math.PI * 0.5
+    // console.log(this.plane)
+    this.plane.receiveShadow = true
+    this.plane.castShadow = true
+    this.scene.add(this.plane);
+  }
   initCylinder() {
-    // var geometry = new THREE.CylinderGeometry(50, 50, 200, 32);
-    // var material = new THREE.MeshLambertMaterial({ color: 0x7effff });
-    // var cylinder = new THREE.Mesh(geometry, material);
-    // this.scene.add(cylinder);
+    var geometry = new THREE.CylinderGeometry(5, 5, 10, 32);
+    var material = new THREE.MeshLambertMaterial({
+      color: 0x7effff
+    });
+    var cylinder = new THREE.Mesh(geometry, material);
+    cylinder.position.y = 5
+    cylinder.castShadow = true
+    cylinder.receiveShadow = true
+    this.scene.add(cylinder);
   }
   // 渲染动画
   animate() {
@@ -58,19 +85,19 @@ export default class World {
   }
   initScene() {
     this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.Fog(0x0c1a4b, 600, 3000); //雾化场景
-    var color = new THREE.Color(0x0c1a4b);
+    this.scene.fog = new THREE.Fog(0x221f20, 600, 3000); //雾化场景
+    var color = new THREE.Color(0x221f20);
     this.scene.background = color;
   }
   initCamera() {
     this.camera = new THREE.PerspectiveCamera(
-      45,
+      10,
       window.innerWidth / window.innerHeight,
       1,
       10000
     );
     this.camera.target = new THREE.Vector3(0, 0, 0);
-    this.camera.position.set(25, 350, 700);
+    this.camera.position.set(700, 350, 700);
   }
   // 初始化渲染器
   initRenderer() {
@@ -93,6 +120,13 @@ export default class World {
     this.light = new THREE.HemisphereLight(0xffffff, 0x444444);
     this.light.position.set(0, 200, 0);
     this.scene.add(this.light);
+  }
+  initSpotLight() {
+    var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(0,100,100)
+    this.scene.add(directionalLight);
+    var helper = new THREE.DirectionalLightHelper(directionalLight, 5);
+    this.scene.add(helper);
   }
   // 初始化鼠标
   initControls() {

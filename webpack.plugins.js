@@ -22,18 +22,18 @@ module.exports = [
   //   chunks: ['home'],
   //   template: "./src/views/home.html"
   // }),
-  // new htmlWebpackPlugin({
-  //   filename: "保存场景或模型.html",
-  //   title: "saveScene",
-  //   chunks: ['saveScene'],
-  //   template: "./src/views/saveScene.html"
-  // }),
-  // new htmlWebpackPlugin({
-  //   filename: "按照轨迹飞行.html",
-  //   title: "airTrail",
-  //   chunks: ['airTrail'],
-  //   template: "./src/views/airTrail.html"
-  // }),
+  new htmlWebpackPlugin({
+    filename: "保存场景或模型.html",
+    title: "saveScene",
+    chunks: ['saveScene'],
+    template: "./src/views/saveScene.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "按照轨迹飞行.html",
+    title: "airTrail",
+    chunks: ['airTrail'],
+    template: "./src/views/airTrail.html"
+  }),
   new htmlWebpackPlugin({
     filename: "全景图.html",
     title: "Panorama",
