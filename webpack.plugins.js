@@ -16,24 +16,24 @@ module.exports = [
     to: './static'
   }]),
   // 自动生成html模板
-  // new htmlWebpackPlugin({
-  //   filename: "home.html",
-  //   title: "home",
-  //   chunks: ['home'],
-  //   template: "./src/views/home.html"
-  // }),
-  // new htmlWebpackPlugin({
-  //   filename: "保存场景或模型.html",
-  //   title: "saveScene",
-  //   chunks: ['saveScene'],
-  //   template: "./src/views/saveScene.html"
-  // }),
-  // new htmlWebpackPlugin({
-  //   filename: "按照轨迹飞行.html",
-  //   title: "airTrail",
-  //   chunks: ['airTrail'],
-  //   template: "./src/views/airTrail.html"
-  // }),
+  new htmlWebpackPlugin({
+    filename: "home.html",
+    title: "home",
+    chunks: ['home'],
+    template: "./src/views/home.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "保存场景或模型.html",
+    title: "saveScene",
+    chunks: ['saveScene'],
+    template: "./src/views/saveScene.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "按照轨迹飞行.html",
+    title: "airTrail",
+    chunks: ['airTrail'],
+    template: "./src/views/airTrail.html"
+  }),
   new htmlWebpackPlugin({
     filename: "全景图.html",
     title: "Panorama",
@@ -45,6 +45,12 @@ module.exports = [
     title: "MicroScene",
     chunks: ['MicroScene'],
     template: "./src/views/MicroScene1.html"
+  }),
+  new htmlWebpackPlugin({
+    filename: "houseDesign.html",
+    title: "houseDesign",
+    chunks: ['houseDesign'],
+    template: "./src/views/houseDesign.html"
   }),
   new webpack.ProvidePlugin({
     $: "jquery",
