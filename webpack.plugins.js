@@ -16,12 +16,12 @@ module.exports = [
     to: './static'
   }]),
   // 自动生成html模板
-  new htmlWebpackPlugin({
-    filename: "home.html",
-    title: "home",
-    chunks: ['home'],
-    template: "./src/views/home.html"
-  }),
+  // new htmlWebpackPlugin({
+  //   filename: "home.html",
+  //   title: "home",
+  //   chunks: ['home'],
+  //   template: "./src/views/home.html"
+  // }),
   new htmlWebpackPlugin({
     filename: "保存场景或模型.html",
     title: "saveScene",
