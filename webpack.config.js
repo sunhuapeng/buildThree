@@ -8,6 +8,7 @@ module.exports = {
     Panorama: './src/scene/Panorama.js',
     MicroScene: './src/scene/MicroScene1.js',
     houseDesign: './src/scene/houseDesign.js',
+    flyline: './src/scene/flyline.js',
   },
   mode: "development",
   plugins: pluginsConfig,

@@ -52,6 +52,12 @@ module.exports = [
     chunks: ['houseDesign'],
     template: "./src/views/houseDesign.html"
   }),
+  new htmlWebpackPlugin({
+    filename: "flyLine.html",
+    title: "flyLine",
+    chunks: ['flyline'],
+    template: "./src/views/flyLine.html"
+  }),
   new webpack.ProvidePlugin({
     $: "jquery",
     jQuery: "jquery",
