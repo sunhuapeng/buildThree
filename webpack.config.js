@@ -9,6 +9,8 @@ module.exports = {
     MicroScene: './src/scene/MicroScene1.js',
     houseDesign: './src/scene/houseDesign.js',
     flyline: './src/scene/flyline.js',
+    chinaMap: './src/scene/chinaMap.js',
+    mapdata: './src/scene/utils/mapdata.js',
   },
   mode: "development",
   plugins: pluginsConfig,

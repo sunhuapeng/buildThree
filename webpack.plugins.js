@@ -58,6 +58,12 @@ module.exports = [
     chunks: ['flyline'],
     template: "./src/views/flyLine.html"
   }),
+  new htmlWebpackPlugin({
+    filename: "chinaMap.html",
+    title: "chinaMap",
+    chunks: ['mapdata','chinaMap'],
+    template: "./src/views/chinaMap.html"
+  }),
   new webpack.ProvidePlugin({
     $: "jquery",
     jQuery: "jquery",
